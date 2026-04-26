@@ -3,7 +3,6 @@ import type {
   ApiResponse,
   ItemRequest,
   CreateRequestRequest,
-  PaginationParams,
 } from '../types/api'
 
 export const requestsService = {

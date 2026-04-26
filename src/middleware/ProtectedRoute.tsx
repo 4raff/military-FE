@@ -13,7 +13,7 @@ export default function ProtectedRoute({ children, requiredRole }: ProtectedRout
   // Show loading state while initializing
   if (isInitializing) {
     return (
-      <div className="flex items-center justify-center h-screen bg-gradient-to-br from-slate-900 via-slate-900 to-slate-800">
+      <div className="flex items-center justify-center h-screen bg-transparent">
         <div className="text-center">
           <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 border border-blue-500/30 mb-4 animate-spin">
             <div className="w-8 h-8 rounded-full border-2 border-transparent border-t-blue-400"></div>

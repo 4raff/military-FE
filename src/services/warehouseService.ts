@@ -1,5 +1,5 @@
 import apiClient from '../utils/api'
-import type { ApiResponse, Warehouse, CreateWarehouseRequest, UpdateWarehouseRequest, PaginationParams, PaginatedResponse } from '../types/api'
+import type { ApiResponse, Warehouse, CreateWarehouseRequest, UpdateWarehouseRequest, PaginationParams } from '../types/api'
 
 export const warehouseService = {
   // Get all warehouses

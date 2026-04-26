@@ -23,34 +23,34 @@ export default function StatCard({
 }: StatCardProps) {
   const colorClasses = {
     blue: {
-      bg: 'bg-blue-500/10',
-      border: 'border-blue-500/20',
+      bg: 'bg-slate-950/58',
+      border: 'border-slate-700/60',
       icon: 'text-blue-400',
-      accent: 'from-blue-500/20 to-blue-400/10',
+      accent: 'from-blue-500/16 to-slate-950/0',
     },
     purple: {
-      bg: 'bg-purple-500/10',
-      border: 'border-purple-500/20',
+      bg: 'bg-slate-950/58',
+      border: 'border-slate-700/60',
       icon: 'text-purple-400',
-      accent: 'from-purple-500/20 to-purple-400/10',
+      accent: 'from-purple-500/16 to-slate-950/0',
     },
     green: {
-      bg: 'bg-green-500/10',
-      border: 'border-green-500/20',
+      bg: 'bg-slate-950/58',
+      border: 'border-slate-700/60',
       icon: 'text-green-400',
-      accent: 'from-green-500/20 to-green-400/10',
+      accent: 'from-green-500/16 to-slate-950/0',
     },
     red: {
-      bg: 'bg-red-500/10',
-      border: 'border-red-500/20',
+      bg: 'bg-slate-950/58',
+      border: 'border-slate-700/60',
       icon: 'text-red-400',
-      accent: 'from-red-500/20 to-red-400/10',
+      accent: 'from-red-500/16 to-slate-950/0',
     },
     orange: {
-      bg: 'bg-orange-500/10',
-      border: 'border-orange-500/20',
+      bg: 'bg-slate-950/58',
+      border: 'border-slate-700/60',
       icon: 'text-orange-400',
-      accent: 'from-orange-500/20 to-orange-400/10',
+      accent: 'from-orange-500/16 to-slate-950/0',
     },
   }
 
@@ -59,7 +59,7 @@ export default function StatCard({
   return (
     <div
       onClick={onClick}
-      className={`relative p-6 rounded-xl border ${colors.bg} ${colors.border} backdrop-blur-sm transition-all duration-300 hover:border-opacity-50 overflow-hidden group ${
+      className={`relative p-6 rounded-xl border ${colors.bg} ${colors.border} backdrop-blur-md transition-all duration-300 hover:border-slate-500/70 overflow-hidden group shadow-[0_10px_30px_rgba(2,6,23,0.45)] ${
         onClick ? 'cursor-pointer hover:shadow-lg hover:shadow-blue-500/10' : ''
       }`}
     >

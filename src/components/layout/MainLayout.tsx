@@ -16,7 +16,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
   }
 
   return (
-    <div className="flex h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-slate-900 to-slate-800">
+    <div className="flex h-screen overflow-hidden bg-transparent">
       {/* Sidebar */}
       <Sidebar isOpen={sidebarOpen} />
 
@@ -26,7 +26,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
         <Navbar onMenuClick={toggleSidebar} />
 
         {/* Content Area */}
-        <main className="flex-1 overflow-y-auto">
+        <main className="flex-1 overflow-y-auto bg-transparent">
           <div className="p-6 md:p-8 max-w-7xl mx-auto">
             {children}
           </div>

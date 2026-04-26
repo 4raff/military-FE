@@ -1,8 +1,10 @@
 import { useAppSelector } from '../../store/hooks'
 import { MainLayout } from '../../components/layout'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import SuperAdminDashboard from './superadmin'
 import AdminDashboard from './admin/index'
 import UserDashboard from './user/index'
+import StatisticsPage from './statistics'
 
 export default function DashboardPage() {
   const user = useAppSelector((state) => state.auth.user)
@@ -24,8 +26,8 @@ export default function DashboardPage() {
     )
   }
 
-  const renderDashboard = () => {
-    switch (user.role) {
+  const renderDashboard = (role: 'superadmin' | 'admin' | 'user') => {
+    switch (role) {
       case 'superadmin':
         return <SuperAdminDashboard />
       case 'admin':
@@ -37,5 +39,22 @@ export default function DashboardPage() {
     }
   }
 
-  return <MainLayout>{renderDashboard()}</MainLayout>
+  return (
+    <MainLayout>
+      <Routes>
+        <Route path="/" element={renderDashboard(user.role)} />
+        <Route
+          path="statistics"
+          element={
+            user.role === 'superadmin' || user.role === 'admin' ? (
+              <StatisticsPage role={user.role} />
+            ) : (
+              <Navigate to="/dashboard" replace />
+            )
+          }
+        />
+        <Route path="*" element={<Navigate to="/dashboard" replace />} />
+      </Routes>
+    </MainLayout>
+  )
 }

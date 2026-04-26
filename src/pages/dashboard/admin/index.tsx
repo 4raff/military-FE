@@ -1,5 +1,5 @@
 import { Users, Package, AlertCircle } from 'lucide-react'
-import { StatCard, ChartCard, RecentActivityTable } from '../../../components/dashboard'
+import { StatCard, RecentActivityTable } from '../../../components/dashboard'
 import { useMemo } from 'react'
 
 export default function AdminDashboard() {

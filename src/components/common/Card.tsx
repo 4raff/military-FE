@@ -29,17 +29,17 @@ export default function Card({
   return (
     <div
       className={clsx(
-        'bg-white rounded-lg',
-        border && 'border border-gray-200',
-        shadow && 'shadow-sm',
+        'bg-slate-950/58 rounded-lg backdrop-blur-md',
+        border && 'border border-slate-700/60',
+        shadow && 'shadow-[0_10px_30px_rgba(2,6,23,0.45)]',
         paddingClasses[padding],
         className,
       )}
     >
       {title && (
         <div className="mb-4">
-          <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
-          {subtitle && <p className="text-sm text-gray-600 mt-1">{subtitle}</p>}
+          <h3 className="text-lg font-semibold text-white">{title}</h3>
+          {subtitle && <p className="text-sm text-slate-300 mt-1">{subtitle}</p>}
         </div>
       )}
       {children}

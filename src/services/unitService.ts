@@ -1,5 +1,5 @@
 import apiClient from '../utils/api'
-import type { ApiResponse, Unit, CreateUnitRequest, UpdateUnitRequest, PaginationParams, PaginatedResponse } from '../types/api'
+import type { ApiResponse, Unit, CreateUnitRequest, UpdateUnitRequest, PaginationParams } from '../types/api'
 
 export const unitService = {
   // Get all units

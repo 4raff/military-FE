@@ -1,5 +1,5 @@
 import apiClient from '../utils/api'
-import type { ApiResponse, User, PaginationParams } from '../types/api'
+import type { ApiResponse, User } from '../types/api'
 
 export const userService = {
   // Get all users (SuperAdmin)

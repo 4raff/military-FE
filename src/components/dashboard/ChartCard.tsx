@@ -16,7 +16,7 @@ export default function ChartCard({
   footer,
 }: ChartCardProps) {
   return (
-    <div className="p-6 rounded-xl border bg-slate-800/30 border-slate-700/50 backdrop-blur-sm hover:border-slate-700 transition-all duration-300">
+    <div className="p-6 rounded-xl border bg-slate-950/58 border-slate-700/60 backdrop-blur-md hover:border-slate-500/70 transition-all duration-300 shadow-[0_10px_30px_rgba(2,6,23,0.45)]">
       {/* Header */}
       <div className="flex items-start justify-between mb-6 pb-4 border-b border-slate-700/50">
         <div className="space-y-1">

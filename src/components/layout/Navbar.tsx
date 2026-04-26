@@ -44,7 +44,7 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
   }
 
   return (
-    <nav className="bg-slate-800/50 backdrop-blur-xl border-b border-slate-700/50 sticky top-0 z-40">
+    <nav className="bg-slate-950/70 backdrop-blur-xl border-b border-slate-700/60 sticky top-0 z-40 shadow-[0_8px_24px_rgba(2,6,23,0.45)]">
       <div className="px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Left: Logo & Title */}
@@ -98,7 +98,7 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setDropdownOpen(!dropdownOpen)}
-                className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-slate-700/50 transition-colors group"
+                className="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-slate-800/70 transition-colors group"
               >
                 <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 text-white font-semibold text-sm">
                   {user?.name?.charAt(0).toUpperCase() || 'U'}
@@ -119,7 +119,7 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
 
               {/* Dropdown Menu */}
               {dropdownOpen && (
-                <div className="absolute right-0 mt-2 w-48 bg-slate-800 border border-slate-700/50 rounded-lg shadow-xl backdrop-blur-xl overflow-hidden">
+                <div className="absolute right-0 mt-2 w-48 bg-slate-950/90 border border-slate-700/60 rounded-lg shadow-xl backdrop-blur-xl overflow-hidden">
                   <div className="p-3 border-b border-slate-700/50">
                     <p className="text-xs text-slate-400">Logged in as</p>
                     <p className="text-sm font-semibold text-white">{user?.email || 'user@example.com'}</p>

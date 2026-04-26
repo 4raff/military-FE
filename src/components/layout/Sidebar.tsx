@@ -92,12 +92,12 @@ export default function Sidebar({ isOpen }: SidebarProps) {
     <>
       {/* Mobile Overlay */}
       {isOpen && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm lg:hidden z-30"></div>
+        <div className="fixed inset-0 bg-black/65 backdrop-blur-sm lg:hidden z-30"></div>
       )}
 
       {/* Sidebar */}
       <aside
-        className={`fixed lg:static top-0 left-0 h-screen w-64 bg-slate-800/50 backdrop-blur-xl border-r border-slate-700/50 transition-transform duration-300 ease-in-out z-40 lg:z-auto ${
+        className={`fixed lg:static top-0 left-0 h-screen w-64 bg-slate-950/72 backdrop-blur-xl border-r border-slate-700/60 transition-transform duration-300 ease-in-out z-40 lg:z-auto ${
           isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
         }`}
       >
@@ -125,7 +125,7 @@ export default function Sidebar({ isOpen }: SidebarProps) {
                   className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 group ${
                     isActive(item.href)
                       ? 'bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-white border border-blue-400/20'
-                      : 'text-slate-400 hover:text-white hover:bg-slate-700/30'
+                        : 'text-slate-300 hover:text-white hover:bg-slate-800/70'
                   }`}
                 >
                   <span

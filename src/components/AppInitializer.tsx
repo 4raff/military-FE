@@ -31,7 +31,7 @@ export default function AppInitializer({ children }: { children: React.ReactNode
           authService.getMe(),
           timeoutPromise,
         ])
-        const user = (response as any).data
+        const user = response as any
         if (user) {
           dispatch(
             loginSuccess({

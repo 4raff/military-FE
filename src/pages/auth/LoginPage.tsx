@@ -69,6 +69,7 @@ export default function LoginPage() {
 
       {/* Login Container */}
       <div className="relative w-full max-w-md px-6 sm:px-8">
+        <div className="rounded-2xl border border-slate-700/60 bg-slate-950/72 backdrop-blur-xl shadow-[0_20px_45px_rgba(2,6,23,0.55)] p-6 sm:p-8">
         {/* Header */}
         <div className="text-center mb-8">
           <div className="flex justify-center mb-4">
@@ -108,7 +109,7 @@ export default function LoginPage() {
                 type="email"
                 placeholder="your@email.com"
                 {...register('email')}
-                className="w-full pl-12 pr-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-20 transition-all"
+                className="w-full pl-12 pr-4 py-3 bg-slate-900/85 border border-slate-700/70 rounded-lg text-white placeholder-slate-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-20 transition-all"
               />
             </div>
             {errors.email && (
@@ -129,7 +130,7 @@ export default function LoginPage() {
                 type="password"
                 placeholder="••••••••"
                 {...register('password')}
-                className="w-full pl-12 pr-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-20 transition-all"
+                className="w-full pl-12 pr-4 py-3 bg-slate-900/85 border border-slate-700/70 rounded-lg text-white placeholder-slate-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-20 transition-all"
               />
             </div>
             {errors.password && (
@@ -172,6 +173,7 @@ export default function LoginPage() {
             )}
           </button>
         </form>
+        </div>
       </div>
     </div>
   )

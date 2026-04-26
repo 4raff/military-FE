@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { Users, Package, Warehouse, FileText, TrendingUp, Clock, AlertCircle, CheckCircle } from 'lucide-react'
+import { Users, Package, Warehouse, TrendingUp, AlertCircle, CheckCircle } from 'lucide-react'
 import { StatCard, ChartCard, RecentActivityTable } from '../../../components/dashboard'
 
 export default function SuperAdminDashboard() {
