@@ -1,0 +1,227 @@
+<mxGraphModel dx="1422" dy="762" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+  <root>
+    <mxCell id="0"/>
+    <mxCell id="1" parent="0"/>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SECTION TITLE -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <mxCell id="main-title" value="Procurement Management Plan — AgroNode" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontStyle=1;fontSize=16;fontColor=#333333;" vertex="1" parent="1"><mxGeometry x="20" y="14" width="600" height="30" as="geometry"/></mxCell>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SUMMARY STAT CARDS -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <mxCell id="sc1" value="<b style='font-size:18px'>12</b><br><span style='font-size:11px;color:#888'>Total item pengadaan</span>" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f5f5f5;align=center;verticalAlign=middle;rounded=1;arcSize=8;fontSize=12;fontColor=#333333;" vertex="1" parent="1"><mxGeometry x="20" y="55" width="160" height="60" as="geometry"/></mxCell>
+    <mxCell id="sc2" value="&lt;b style='font-size:18px'&gt;12&lt;/b&gt;&lt;br&gt;&lt;span style='font-size:11px;color:#888'&gt;Total item&lt;/span&gt;" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f5f5f5;align=center;verticalAlign=middle;rounded=1;arcSize=8;fontSize=12;fontColor=#333333;" vertex="1" parent="1"><mxGeometry x="190" y="55" width="160" height="60" as="geometry"/></mxCell>
+    <mxCell id="sc3" value="<b style='font-size:18px'>6</b><br><span style='font-size:11px;color:#888'>Kategori pengadaan</span>" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f5f5f5;align=center;verticalAlign=middle;rounded=1;arcSize=8;fontSize=12;fontColor=#333333;" vertex="1" parent="1"><mxGeometry x="360" y="55" width="160" height="60" as="geometry"/></mxCell>
+    <mxCell id="sc4" value="<b style='font-size:16px'>Bulan 1–8</b><br><span style='font-size:11px;color:#888'>Rentang waktu pengadaan</span>" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f5f5f5;align=center;verticalAlign=middle;rounded=1;arcSize=8;fontSize=12;fontColor=#333333;" vertex="1" parent="1"><mxGeometry x="530" y="55" width="160" height="60" as="geometry"/></mxCell>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SECTION 10.1 — DAFTAR PENGADAAN -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <mxCell id="s1-title" value="10.1 DAFTAR PENGADAAN" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontStyle=1;fontSize=12;fontColor=#666666;" vertex="1" parent="1"><mxGeometry x="20" y="135" width="300" height="24" as="geometry"/></mxCell>
+
+    <!-- TABLE HEADER -->
+    <mxCell id="th1" value="No" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontStyle=1;fontSize=10;fontColor=#555555;" vertex="1" parent="1"><mxGeometry x="20" y="159" width="34" height="30" as="geometry"/></mxCell>
+    <mxCell id="th2" value="Item Pengadaan" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f5f5f5;align=left;verticalAlign=middle;fontStyle=1;fontSize=10;fontColor=#555555;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="54" y="159" width="160" height="30" as="geometry"/></mxCell>
+    <mxCell id="th3" value="Kategori" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontStyle=1;fontSize=10;fontColor=#555555;" vertex="1" parent="1"><mxGeometry x="214" y="159" width="90" height="30" as="geometry"/></mxCell>
+    <mxCell id="th4" value="Deskripsi" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f5f5f5;align=left;verticalAlign=middle;fontStyle=1;fontSize=10;fontColor=#555555;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="304" y="159" width="200" height="30" as="geometry"/></mxCell>
+    <mxCell id="th5" value="Estimasi Biaya" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontStyle=1;fontSize=10;fontColor=#555555;" vertex="1" parent="1"><mxGeometry x="504" y="159" width="110" height="30" as="geometry"/></mxCell>
+    <mxCell id="th6" value="Vendor / Sumber" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f5f5f5;align=left;verticalAlign=middle;fontStyle=1;fontSize=10;fontColor=#555555;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="614" y="159" width="190" height="30" as="geometry"/></mxCell>
+    <mxCell id="th7" value="Waktu" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontStyle=1;fontSize=10;fontColor=#555555;" vertex="1" parent="1"><mxGeometry x="804" y="159" width="70" height="30" as="geometry"/></mxCell>
+    <mxCell id="th8" value="Status" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontStyle=1;fontSize=10;fontColor=#555555;" vertex="1" parent="1"><mxGeometry x="874" y="159" width="70" height="30" as="geometry"/></mxCell>
+
+    <!-- ROW 1: Cloud Hosting / VPS -->
+    <mxCell id="r1a" value="1" style="text;html=1;strokeColor=#d0d0d0;fillColor=#ffffff;align=center;verticalAlign=middle;fontSize=10;" vertex="1" parent="1"><mxGeometry x="20" y="189" width="34" height="36" as="geometry"/></mxCell>
+    <mxCell id="r1b" value="Cloud Hosting / VPS" style="text;html=1;strokeColor=#d0d0d0;fillColor=#ffffff;align=left;verticalAlign=middle;fontSize=10;fontStyle=1;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="54" y="189" width="160" height="36" as="geometry"/></mxCell>
+    <mxCell id="r1c" value="Infrastruktur" style="text;html=1;strokeColor=#d0d0d0;fillColor=#E6F1FB;align=center;verticalAlign=middle;rounded=1;arcSize=20;fontSize=10;fontColor=#0C447C;" vertex="1" parent="1"><mxGeometry x="222" y="196" width="74" height="22" as="geometry"/></mxCell>
+    <mxCell id="r1d" value="Server utama untuk deploy website AgroNode" style="text;html=1;strokeColor=#d0d0d0;fillColor=#ffffff;align=left;verticalAlign=middle;fontSize=10;fontColor=#666;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="304" y="189" width="200" height="36" as="geometry"/></mxCell>
+    <mxCell id="r1e" value="Rp 18.000.000" style="text;html=1;strokeColor=#d0d0d0;fillColor=#ffffff;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="504" y="189" width="110" height="36" as="geometry"/></mxCell>
+    <mxCell id="r1f" value="Niagahoster / DigitalOcean / AWS" style="text;html=1;strokeColor=#d0d0d0;fillColor=#ffffff;align=left;verticalAlign=middle;fontSize=10;fontColor=#666;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="614" y="189" width="190" height="36" as="geometry"/></mxCell>
+    <mxCell id="r1g" value="Bulan 6" style="text;html=1;strokeColor=#d0d0d0;fillColor=#F1EFE8;align=center;verticalAlign=middle;rounded=1;arcSize=20;fontSize=10;fontColor=#444441;" vertex="1" parent="1"><mxGeometry x="812" y="196" width="54" height="22" as="geometry"/></mxCell>
+    <mxCell id="r1h" value="Planned" style="text;html=1;strokeColor=#d0d0d0;fillColor=#F1EFE8;align=center;verticalAlign=middle;rounded=1;arcSize=20;fontSize=10;fontColor=#444441;" vertex="1" parent="1"><mxGeometry x="882" y="196" width="54" height="22" as="geometry"/></mxCell>
+
+    <!-- ROW 2: Domain -->
+    <mxCell id="r2a" value="2" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f9f9f9;align=center;verticalAlign=middle;fontSize=10;" vertex="1" parent="1"><mxGeometry x="20" y="225" width="34" height="36" as="geometry"/></mxCell>
+    <mxCell id="r2b" value="Domain (.com/.id)" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f9f9f9;align=left;verticalAlign=middle;fontSize=10;fontStyle=1;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="54" y="225" width="160" height="36" as="geometry"/></mxCell>
+    <mxCell id="r2c" value="Infrastruktur" style="text;html=1;strokeColor=#d0d0d0;fillColor=#E6F1FB;align=center;verticalAlign=middle;rounded=1;arcSize=20;fontSize=10;fontColor=#0C447C;" vertex="1" parent="1"><mxGeometry x="222" y="232" width="74" height="22" as="geometry"/></mxCell>
+    <mxCell id="r2d" value="Domain resmi agronode.id atau agronode.com" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f9f9f9;align=left;verticalAlign=middle;fontSize=10;fontColor=#666;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="304" y="225" width="200" height="36" as="geometry"/></mxCell>
+    <mxCell id="r2e" value="Rp 500.000" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f9f9f9;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="504" y="225" width="110" height="36" as="geometry"/></mxCell>
+    <mxCell id="r2f" value="Niagahoster / IDwebhost" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f9f9f9;align=left;verticalAlign=middle;fontSize=10;fontColor=#666;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="614" y="225" width="190" height="36" as="geometry"/></mxCell>
+    <mxCell id="r2g" value="Bulan 6" style="text;html=1;strokeColor=#d0d0d0;fillColor=#F1EFE8;align=center;verticalAlign=middle;rounded=1;arcSize=20;fontSize=10;fontColor=#444441;" vertex="1" parent="1"><mxGeometry x="812" y="232" width="54" height="22" as="geometry"/></mxCell>
+    <mxCell id="r2h" value="Planned" style="text;html=1;strokeColor=#d0d0d0;fillColor=#F1EFE8;align=center;verticalAlign=middle;rounded=1;arcSize=20;fontSize=10;fontColor=#444441;" vertex="1" parent="1"><mxGeometry x="882" y="232" width="54" height="22" as="geometry"/></mxCell>
+
+    <!-- ROW 3: SSL Certificate -->
+    <mxCell id="r3a" value="3" style="text;html=1;strokeColor=#d0d0d0;fillColor=#ffffff;align=center;verticalAlign=middle;fontSize=10;" vertex="1" parent="1"><mxGeometry x="20" y="261" width="34" height="36" as="geometry"/></mxCell>
+    <mxCell id="r3b" value="SSL Certificate" style="text;html=1;strokeColor=#d0d0d0;fillColor=#ffffff;align=left;verticalAlign=middle;fontSize=10;fontStyle=1;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="54" y="261" width="160" height="36" as="geometry"/></mxCell>
+    <mxCell id="r3c" value="Keamanan" style="text;html=1;strokeColor=#d0d0d0;fillColor=#FCEBEB;align=center;verticalAlign=middle;rounded=1;arcSize=20;fontSize=10;fontColor=#791F1F;" vertex="1" parent="1"><mxGeometry x="222" y="268" width="74" height="22" as="geometry"/></mxCell>
+    <mxCell id="r3d" value="Enkripsi HTTPS untuk keamanan transaksi" style="text;html=1;strokeColor=#d0d0d0;fillColor=#ffffff;align=left;verticalAlign=middle;fontSize=10;fontColor=#666;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="304" y="261" width="200" height="36" as="geometry"/></mxCell>
+    <mxCell id="r3e" value="Included" style="text;html=1;strokeColor=#d0d0d0;fillColor=#ffffff;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="504" y="261" width="110" height="36" as="geometry"/></mxCell>
+    <mxCell id="r3f" value="Let's Encrypt / Hosting provider" style="text;html=1;strokeColor=#d0d0d0;fillColor=#ffffff;align=left;verticalAlign=middle;fontSize=10;fontColor=#666;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="614" y="261" width="190" height="36" as="geometry"/></mxCell>
+    <mxCell id="r3g" value="Bulan 6" style="text;html=1;strokeColor=#d0d0d0;fillColor=#F1EFE8;align=center;verticalAlign=middle;rounded=1;arcSize=20;fontSize=10;fontColor=#444441;" vertex="1" parent="1"><mxGeometry x="812" y="268" width="54" height="22" as="geometry"/></mxCell>
+    <mxCell id="r3h" value="Planned" style="text;html=1;strokeColor=#d0d0d0;fillColor=#F1EFE8;align=center;verticalAlign=middle;rounded=1;arcSize=20;fontSize=10;fontColor=#444441;" vertex="1" parent="1"><mxGeometry x="882" y="268" width="54" height="22" as="geometry"/></mxCell>
+
+    <!-- ROW 4: Backup & Monitoring Tool -->
+    <mxCell id="r4a" value="4" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f9f9f9;align=center;verticalAlign=middle;fontSize=10;" vertex="1" parent="1"><mxGeometry x="20" y="297" width="34" height="36" as="geometry"/></mxCell>
+    <mxCell id="r4b" value="Backup & Monitoring Tool" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f9f9f9;align=left;verticalAlign=middle;fontSize=10;fontStyle=1;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="54" y="297" width="160" height="36" as="geometry"/></mxCell>
+    <mxCell id="r4c" value="Infrastruktur" style="text;html=1;strokeColor=#d0d0d0;fillColor=#E6F1FB;align=center;verticalAlign=middle;rounded=1;arcSize=20;fontSize=10;fontColor=#0C447C;" vertex="1" parent="1"><mxGeometry x="222" y="304" width="74" height="22" as="geometry"/></mxCell>
+    <mxCell id="r4d" value="Uptime monitoring & backup otomatis server" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f9f9f9;align=left;verticalAlign=middle;fontSize=10;fontColor=#666;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="304" y="297" width="200" height="36" as="geometry"/></mxCell>
+    <mxCell id="r4e" value="Rp 4.000.000" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f9f9f9;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="504" y="297" width="110" height="36" as="geometry"/></mxCell>
+    <mxCell id="r4f" value="UptimeRobot / Better Uptime" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f9f9f9;align=left;verticalAlign=middle;fontSize=10;fontColor=#666;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="614" y="297" width="190" height="36" as="geometry"/></mxCell>
+    <mxCell id="r4g" value="Bulan 6" style="text;html=1;strokeColor=#d0d0d0;fillColor=#F1EFE8;align=center;verticalAlign=middle;rounded=1;arcSize=20;fontSize=10;fontColor=#444441;" vertex="1" parent="1"><mxGeometry x="812" y="304" width="54" height="22" as="geometry"/></mxCell>
+    <mxCell id="r4h" value="Planned" style="text;html=1;strokeColor=#d0d0d0;fillColor=#F1EFE8;align=center;verticalAlign=middle;rounded=1;arcSize=20;fontSize=10;fontColor=#444441;" vertex="1" parent="1"><mxGeometry x="882" y="304" width="54" height="22" as="geometry"/></mxCell>
+
+    <!-- ROW 5: Figma Professional -->
+    <mxCell id="r5a" value="5" style="text;html=1;strokeColor=#d0d0d0;fillColor=#ffffff;align=center;verticalAlign=middle;fontSize=10;" vertex="1" parent="1"><mxGeometry x="20" y="333" width="34" height="36" as="geometry"/></mxCell>
+    <mxCell id="r5b" value="Figma Professional" style="text;html=1;strokeColor=#d0d0d0;fillColor=#ffffff;align=left;verticalAlign=middle;fontSize=10;fontStyle=1;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="54" y="333" width="160" height="36" as="geometry"/></mxCell>
+    <mxCell id="r5c" value="Tools Dev" style="text;html=1;strokeColor=#d0d0d0;fillColor=#EEEDFE;align=center;verticalAlign=middle;rounded=1;arcSize=20;fontSize=10;fontColor=#3C3489;" vertex="1" parent="1"><mxGeometry x="222" y="340" width="74" height="22" as="geometry"/></mxCell>
+    <mxCell id="r5d" value="Kolaborasi desain UI/UX & prototype interaktif" style="text;html=1;strokeColor=#d0d0d0;fillColor=#ffffff;align=left;verticalAlign=middle;fontSize=10;fontColor=#666;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="304" y="333" width="200" height="36" as="geometry"/></mxCell>
+    <mxCell id="r5e" value="Rp 2.500.000" style="text;html=1;strokeColor=#d0d0d0;fillColor=#ffffff;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="504" y="333" width="110" height="36" as="geometry"/></mxCell>
+    <mxCell id="r5f" value="Figma (figma.com)" style="text;html=1;strokeColor=#d0d0d0;fillColor=#ffffff;align=left;verticalAlign=middle;fontSize=10;fontColor=#666;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="614" y="333" width="190" height="36" as="geometry"/></mxCell>
+    <mxCell id="r5g" value="Bulan 1" style="text;html=1;strokeColor=#d0d0d0;fillColor=#F1EFE8;align=center;verticalAlign=middle;rounded=1;arcSize=20;fontSize=10;fontColor=#444441;" vertex="1" parent="1"><mxGeometry x="812" y="340" width="54" height="22" as="geometry"/></mxCell>
+    <mxCell id="r5h" value="Planned" style="text;html=1;strokeColor=#d0d0d0;fillColor=#F1EFE8;align=center;verticalAlign=middle;rounded=1;arcSize=20;fontSize=10;fontColor=#444441;" vertex="1" parent="1"><mxGeometry x="882" y="340" width="54" height="22" as="geometry"/></mxCell>
+
+    <!-- ROW 6: Trello / Jira -->
+    <mxCell id="r6a" value="6" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f9f9f9;align=center;verticalAlign=middle;fontSize=10;" vertex="1" parent="1"><mxGeometry x="20" y="369" width="34" height="36" as="geometry"/></mxCell>
+    <mxCell id="r6b" value="Trello / Jira" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f9f9f9;align=left;verticalAlign=middle;fontSize=10;fontStyle=1;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="54" y="369" width="160" height="36" as="geometry"/></mxCell>
+    <mxCell id="r6c" value="Tools Dev" style="text;html=1;strokeColor=#d0d0d0;fillColor=#EEEDFE;align=center;verticalAlign=middle;rounded=1;arcSize=20;fontSize=10;fontColor=#3C3489;" vertex="1" parent="1"><mxGeometry x="222" y="376" width="74" height="22" as="geometry"/></mxCell>
+    <mxCell id="r6d" value="Manajemen task, sprint board, dan backlog proyek" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f9f9f9;align=left;verticalAlign=middle;fontSize=10;fontColor=#666;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="304" y="369" width="200" height="36" as="geometry"/></mxCell>
+    <mxCell id="r6e" value="Rp 2.000.000" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f9f9f9;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="504" y="369" width="110" height="36" as="geometry"/></mxCell>
+    <mxCell id="r6f" value="Atlassian / Trello.com" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f9f9f9;align=left;verticalAlign=middle;fontSize=10;fontColor=#666;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="614" y="369" width="190" height="36" as="geometry"/></mxCell>
+    <mxCell id="r6g" value="Bulan 1" style="text;html=1;strokeColor=#d0d0d0;fillColor=#F1EFE8;align=center;verticalAlign=middle;rounded=1;arcSize=20;fontSize=10;fontColor=#444441;" vertex="1" parent="1"><mxGeometry x="812" y="376" width="54" height="22" as="geometry"/></mxCell>
+    <mxCell id="r6h" value="Planned" style="text;html=1;strokeColor=#d0d0d0;fillColor=#F1EFE8;align=center;verticalAlign=middle;rounded=1;arcSize=20;fontSize=10;fontColor=#444441;" vertex="1" parent="1"><mxGeometry x="882" y="376" width="54" height="22" as="geometry"/></mxCell>
+
+    <!-- ROW 7: GitHub (Pro/Team) -->
+    <mxCell id="r7a" value="7" style="text;html=1;strokeColor=#d0d0d0;fillColor=#ffffff;align=center;verticalAlign=middle;fontSize=10;" vertex="1" parent="1"><mxGeometry x="20" y="405" width="34" height="36" as="geometry"/></mxCell>
+    <mxCell id="r7b" value="GitHub (Pro/Team)" style="text;html=1;strokeColor=#d0d0d0;fillColor=#ffffff;align=left;verticalAlign=middle;fontSize=10;fontStyle=1;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="54" y="405" width="160" height="36" as="geometry"/></mxCell>
+    <mxCell id="r7c" value="Tools Dev" style="text;html=1;strokeColor=#d0d0d0;fillColor=#EEEDFE;align=center;verticalAlign=middle;rounded=1;arcSize=20;fontSize=10;fontColor=#3C3489;" vertex="1" parent="1"><mxGeometry x="222" y="412" width="74" height="22" as="geometry"/></mxCell>
+    <mxCell id="r7d" value="Version control, CI/CD pipeline, code review" style="text;html=1;strokeColor=#d0d0d0;fillColor=#ffffff;align=left;verticalAlign=middle;fontSize=10;fontColor=#666;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="304" y="405" width="200" height="36" as="geometry"/></mxCell>
+    <mxCell id="r7e" value="Rp 3.000.000" style="text;html=1;strokeColor=#d0d0d0;fillColor=#ffffff;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="504" y="405" width="110" height="36" as="geometry"/></mxCell>
+    <mxCell id="r7f" value="GitHub.com" style="text;html=1;strokeColor=#d0d0d0;fillColor=#ffffff;align=left;verticalAlign=middle;fontSize=10;fontColor=#666;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="614" y="405" width="190" height="36" as="geometry"/></mxCell>
+    <mxCell id="r7g" value="Bulan 1" style="text;html=1;strokeColor=#d0d0d0;fillColor=#F1EFE8;align=center;verticalAlign=middle;rounded=1;arcSize=20;fontSize=10;fontColor=#444441;" vertex="1" parent="1"><mxGeometry x="812" y="412" width="54" height="22" as="geometry"/></mxCell>
+    <mxCell id="r7h" value="Planned" style="text;html=1;strokeColor=#d0d0d0;fillColor=#F1EFE8;align=center;verticalAlign=middle;rounded=1;arcSize=20;fontSize=10;fontColor=#444441;" vertex="1" parent="1"><mxGeometry x="882" y="412" width="54" height="22" as="geometry"/></mxCell>
+
+    <!-- ROW 8: API Payment Gateway -->
+    <mxCell id="r8a" value="8" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f9f9f9;align=center;verticalAlign=middle;fontSize=10;" vertex="1" parent="1"><mxGeometry x="20" y="441" width="34" height="36" as="geometry"/></mxCell>
+    <mxCell id="r8b" value="API Payment Gateway" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f9f9f9;align=left;verticalAlign=middle;fontSize=10;fontStyle=1;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="54" y="441" width="160" height="36" as="geometry"/></mxCell>
+    <mxCell id="r8c" value="Integrasi" style="text;html=1;strokeColor=#d0d0d0;fillColor=#E1F5EE;align=center;verticalAlign=middle;rounded=1;arcSize=20;fontSize=10;fontColor=#085041;" vertex="1" parent="1"><mxGeometry x="222" y="448" width="74" height="22" as="geometry"/></mxCell>
+    <mxCell id="r8d" value="Sandbox/API Midtrans atau Xendit untuk pembayaran" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f9f9f9;align=left;verticalAlign=middle;fontSize=10;fontColor=#666;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="304" y="441" width="200" height="36" as="geometry"/></mxCell>
+    <mxCell id="r8e" value="Rp 5.000.000" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f9f9f9;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="504" y="441" width="110" height="36" as="geometry"/></mxCell>
+    <mxCell id="r8f" value="Midtrans / Xendit" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f9f9f9;align=left;verticalAlign=middle;fontSize=10;fontColor=#666;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="614" y="441" width="190" height="36" as="geometry"/></mxCell>
+    <mxCell id="r8g" value="Bulan 5" style="text;html=1;strokeColor=#d0d0d0;fillColor=#F1EFE8;align=center;verticalAlign=middle;rounded=1;arcSize=20;fontSize=10;fontColor=#444441;" vertex="1" parent="1"><mxGeometry x="812" y="448" width="54" height="22" as="geometry"/></mxCell>
+    <mxCell id="r8h" value="Planned" style="text;html=1;strokeColor=#d0d0d0;fillColor=#F1EFE8;align=center;verticalAlign=middle;rounded=1;arcSize=20;fontSize=10;fontColor=#444441;" vertex="1" parent="1"><mxGeometry x="882" y="448" width="54" height="22" as="geometry"/></mxCell>
+
+    <!-- ROW 9: API Logistik -->
+    <mxCell id="r9a" value="9" style="text;html=1;strokeColor=#d0d0d0;fillColor=#ffffff;align=center;verticalAlign=middle;fontSize=10;" vertex="1" parent="1"><mxGeometry x="20" y="477" width="34" height="36" as="geometry"/></mxCell>
+    <mxCell id="r9b" value="API Logistik" style="text;html=1;strokeColor=#d0d0d0;fillColor=#ffffff;align=left;verticalAlign=middle;fontSize=10;fontStyle=1;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="54" y="477" width="160" height="36" as="geometry"/></mxCell>
+    <mxCell id="r9c" value="Integrasi" style="text;html=1;strokeColor=#d0d0d0;fillColor=#E1F5EE;align=center;verticalAlign=middle;rounded=1;arcSize=20;fontSize=10;fontColor=#085041;" vertex="1" parent="1"><mxGeometry x="222" y="484" width="74" height="22" as="geometry"/></mxCell>
+    <mxCell id="r9d" value="Integrasi API status pengiriman JNE/SiCepat" style="text;html=1;strokeColor=#d0d0d0;fillColor=#ffffff;align=left;verticalAlign=middle;fontSize=10;fontColor=#666;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="304" y="477" width="200" height="36" as="geometry"/></mxCell>
+    <mxCell id="r9e" value="Rp 3.000.000" style="text;html=1;strokeColor=#d0d0d0;fillColor=#ffffff;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="504" y="477" width="110" height="36" as="geometry"/></mxCell>
+    <mxCell id="r9f" value="JNE API / SiCepat API" style="text;html=1;strokeColor=#d0d0d0;fillColor=#ffffff;align=left;verticalAlign=middle;fontSize=10;fontColor=#666;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="614" y="477" width="190" height="36" as="geometry"/></mxCell>
+    <mxCell id="r9g" value="Bulan 5" style="text;html=1;strokeColor=#d0d0d0;fillColor=#F1EFE8;align=center;verticalAlign=middle;rounded=1;arcSize=20;fontSize=10;fontColor=#444441;" vertex="1" parent="1"><mxGeometry x="812" y="484" width="54" height="22" as="geometry"/></mxCell>
+    <mxCell id="r9h" value="Planned" style="text;html=1;strokeColor=#d0d0d0;fillColor=#F1EFE8;align=center;verticalAlign=middle;rounded=1;arcSize=20;fontSize=10;fontColor=#444441;" vertex="1" parent="1"><mxGeometry x="882" y="484" width="54" height="22" as="geometry"/></mxCell>
+
+    <!-- ROW 10: Google Workspace -->
+    <mxCell id="r10a" value="10" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f9f9f9;align=center;verticalAlign=middle;fontSize=10;" vertex="1" parent="1"><mxGeometry x="20" y="513" width="34" height="36" as="geometry"/></mxCell>
+    <mxCell id="r10b" value="Google Workspace" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f9f9f9;align=left;verticalAlign=middle;fontSize=10;fontStyle=1;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="54" y="513" width="160" height="36" as="geometry"/></mxCell>
+    <mxCell id="r10c" value="Komunikasi" style="text;html=1;strokeColor=#d0d0d0;fillColor=#FAEEDA;align=center;verticalAlign=middle;rounded=1;arcSize=20;fontSize=10;fontColor=#633806;" vertex="1" parent="1"><mxGeometry x="222" y="520" width="74" height="22" as="geometry"/></mxCell>
+    <mxCell id="r10d" value="Email profesional, Google Meet, Drive tim" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f9f9f9;align=left;verticalAlign=middle;fontSize=10;fontColor=#666;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="304" y="513" width="200" height="36" as="geometry"/></mxCell>
+    <mxCell id="r10e" value="Rp 3.000.000" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f9f9f9;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="504" y="513" width="110" height="36" as="geometry"/></mxCell>
+    <mxCell id="r10f" value="Google Workspace" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f9f9f9;align=left;verticalAlign=middle;fontSize=10;fontColor=#666;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="614" y="513" width="190" height="36" as="geometry"/></mxCell>
+    <mxCell id="r10g" value="Bulan 1" style="text;html=1;strokeColor=#d0d0d0;fillColor=#F1EFE8;align=center;verticalAlign=middle;rounded=1;arcSize=20;fontSize=10;fontColor=#444441;" vertex="1" parent="1"><mxGeometry x="812" y="520" width="54" height="22" as="geometry"/></mxCell>
+    <mxCell id="r10h" value="Planned" style="text;html=1;strokeColor=#d0d0d0;fillColor=#F1EFE8;align=center;verticalAlign=middle;rounded=1;arcSize=20;fontSize=10;fontColor=#444441;" vertex="1" parent="1"><mxGeometry x="882" y="520" width="54" height="22" as="geometry"/></mxCell>
+
+    <!-- ROW 11: Jasa Fotografer Produk -->
+    <mxCell id="r11a" value="11" style="text;html=1;strokeColor=#d0d0d0;fillColor=#ffffff;align=center;verticalAlign=middle;fontSize=10;" vertex="1" parent="1"><mxGeometry x="20" y="549" width="34" height="36" as="geometry"/></mxCell>
+    <mxCell id="r11b" value="Jasa Fotografer Produk" style="text;html=1;strokeColor=#d0d0d0;fillColor=#ffffff;align=left;verticalAlign=middle;fontSize=10;fontStyle=1;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="54" y="549" width="160" height="36" as="geometry"/></mxCell>
+    <mxCell id="r11c" value="Konten" style="text;html=1;strokeColor=#d0d0d0;fillColor=#FBEAF0;align=center;verticalAlign=middle;rounded=1;arcSize=20;fontSize=10;fontColor=#72243E;" vertex="1" parent="1"><mxGeometry x="222" y="556" width="74" height="22" as="geometry"/></mxCell>
+    <mxCell id="r11d" value="Foto produk desa untuk konten katalog awal website" style="text;html=1;strokeColor=#d0d0d0;fillColor=#ffffff;align=left;verticalAlign=middle;fontSize=10;fontColor=#666;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="304" y="549" width="200" height="36" as="geometry"/></mxCell>
+    <mxCell id="r11e" value="Rp 5.000.000" style="text;html=1;strokeColor=#d0d0d0;fillColor=#ffffff;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="504" y="549" width="110" height="36" as="geometry"/></mxCell>
+    <mxCell id="r11f" value="Fotografer freelance lokal" style="text;html=1;strokeColor=#d0d0d0;fillColor=#ffffff;align=left;verticalAlign=middle;fontSize=10;fontColor=#666;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="614" y="549" width="190" height="36" as="geometry"/></mxCell>
+    <mxCell id="r11g" value="Bulan 7" style="text;html=1;strokeColor=#d0d0d0;fillColor=#F1EFE8;align=center;verticalAlign=middle;rounded=1;arcSize=20;fontSize=10;fontColor=#444441;" vertex="1" parent="1"><mxGeometry x="812" y="556" width="54" height="22" as="geometry"/></mxCell>
+    <mxCell id="r11h" value="Planned" style="text;html=1;strokeColor=#d0d0d0;fillColor=#F1EFE8;align=center;verticalAlign=middle;rounded=1;arcSize=20;fontSize=10;fontColor=#444441;" vertex="1" parent="1"><mxGeometry x="882" y="556" width="54" height="22" as="geometry"/></mxCell>
+
+    <!-- ROW 12: Materi Pelatihan & Cetak -->
+    <mxCell id="r12a" value="12" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f9f9f9;align=center;verticalAlign=middle;fontSize=10;" vertex="1" parent="1"><mxGeometry x="20" y="585" width="34" height="36" as="geometry"/></mxCell>
+    <mxCell id="r12b" value="Materi Pelatihan & Cetak" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f9f9f9;align=left;verticalAlign=middle;fontSize=10;fontStyle=1;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="54" y="585" width="160" height="36" as="geometry"/></mxCell>
+    <mxCell id="r12c" value="Pelatihan" style="text;html=1;strokeColor=#d0d0d0;fillColor=#EAF3DE;align=center;verticalAlign=middle;rounded=1;arcSize=20;fontSize=10;fontColor=#27500A;" vertex="1" parent="1"><mxGeometry x="222" y="592" width="74" height="22" as="geometry"/></mxCell>
+    <mxCell id="r12d" value="Modul cetak SOP, buku panduan, & materi training" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f9f9f9;align=left;verticalAlign=middle;fontSize=10;fontColor=#666;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="304" y="585" width="200" height="36" as="geometry"/></mxCell>
+    <mxCell id="r12e" value="Rp 3.500.000" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f9f9f9;align=center;verticalAlign=middle;fontSize=10;fontStyle=1;" vertex="1" parent="1"><mxGeometry x="504" y="585" width="110" height="36" as="geometry"/></mxCell>
+    <mxCell id="r12f" value="Percetakan lokal" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f9f9f9;align=left;verticalAlign=middle;fontSize=10;fontColor=#666;spacingLeft=4;" vertex="1" parent="1"><mxGeometry x="614" y="585" width="190" height="36" as="geometry"/></mxCell>
+    <mxCell id="r12g" value="Bulan 7" style="text;html=1;strokeColor=#d0d0d0;fillColor=#F1EFE8;align=center;verticalAlign=middle;rounded=1;arcSize=20;fontSize=10;fontColor=#444441;" vertex="1" parent="1"><mxGeometry x="812" y="592" width="54" height="22" as="geometry"/></mxCell>
+    <mxCell id="r12h" value="Planned" style="text;html=1;strokeColor=#d0d0d0;fillColor=#F1EFE8;align=center;verticalAlign=middle;rounded=1;arcSize=20;fontSize=10;fontColor=#444441;" vertex="1" parent="1"><mxGeometry x="882" y="592" width="54" height="22" as="geometry"/></mxCell>
+
+    <!-- TOTAL ROW -->
+    <mxCell id="tot1" value="TOTAL ESTIMASI" style="text;html=1;strokeColor=#bbb;fillColor=#f5f5f5;align=right;verticalAlign=middle;fontStyle=1;fontSize=10;fontColor=#333333;spacingRight=6;" vertex="1" parent="1"><mxGeometry x="20" y="621" width="484" height="30" as="geometry"/></mxCell>
+    <mxCell id="tot2" value="Rp 49.500.000*" style="text;html=1;strokeColor=#bbb;fillColor=#f5f5f5;align=center;verticalAlign=middle;fontStyle=1;fontSize=11;fontColor=#333333;" vertex="1" parent="1"><mxGeometry x="504" y="621" width="110" height="30" as="geometry"/></mxCell>
+    <mxCell id="tot3" value="*di luar SSL (included) & dari total cost estimation" style="text;html=1;strokeColor=#bbb;fillColor=#f5f5f5;align=left;verticalAlign=middle;fontSize=10;fontColor=#888888;spacingLeft=6;" vertex="1" parent="1"><mxGeometry x="614" y="621" width="330" height="30" as="geometry"/></mxCell>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SECTION 10.2 — DISTRIBUSI BIAYA PER KATEGORI -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <mxCell id="s2-title" value="10.2 DISTRIBUSI BIAYA PER KATEGORI" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontStyle=1;fontSize=12;fontColor=#666666;" vertex="1" parent="1"><mxGeometry x="20" y="670" width="400" height="24" as="geometry"/></mxCell>
+
+    <!-- BAR: Infrastruktur 22.5jt -->
+    <mxCell id="bl1" value="Infrastruktur" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontSize=10;fontColor=#555555;" vertex="1" parent="1"><mxGeometry x="20" y="700" width="100" height="24" as="geometry"/></mxCell>
+    <mxCell id="bb1" value="" style="strokeColor=none;fillColor=#e0e0e0;rounded=1;arcSize=10;" vertex="1" parent="1"><mxGeometry x="126" y="702" width="360" height="20" as="geometry"/></mxCell>
+    <mxCell id="bf1" value="" style="strokeColor=none;fillColor=#185FA5;rounded=1;arcSize=10;" vertex="1" parent="1"><mxGeometry x="126" y="702" width="324" height="20" as="geometry"/></mxCell>
+    <mxCell id="bv1" value="Rp 22.5jt" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontStyle=1;fontSize=10;fontColor=#333333;" vertex="1" parent="1"><mxGeometry x="454" y="700" width="80" height="24" as="geometry"/></mxCell>
+
+    <!-- BAR: Tools Dev 7.5jt -->
+    <mxCell id="bl2" value="Tools Dev" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontSize=10;fontColor=#555555;" vertex="1" parent="1"><mxGeometry x="20" y="730" width="100" height="24" as="geometry"/></mxCell>
+    <mxCell id="bb2" value="" style="strokeColor=none;fillColor=#e0e0e0;rounded=1;arcSize=10;" vertex="1" parent="1"><mxGeometry x="126" y="732" width="360" height="20" as="geometry"/></mxCell>
+    <mxCell id="bf2" value="" style="strokeColor=none;fillColor=#534AB7;rounded=1;arcSize=10;" vertex="1" parent="1"><mxGeometry x="126" y="732" width="108" height="20" as="geometry"/></mxCell>
+    <mxCell id="bv2" value="Rp 7.5jt" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontStyle=1;fontSize=10;fontColor=#333333;" vertex="1" parent="1"><mxGeometry x="238" y="730" width="80" height="24" as="geometry"/></mxCell>
+
+    <!-- BAR: Integrasi 8jt -->
+    <mxCell id="bl3" value="Integrasi" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontSize=10;fontColor=#555555;" vertex="1" parent="1"><mxGeometry x="20" y="760" width="100" height="24" as="geometry"/></mxCell>
+    <mxCell id="bb3" value="" style="strokeColor=none;fillColor=#e0e0e0;rounded=1;arcSize=10;" vertex="1" parent="1"><mxGeometry x="126" y="762" width="360" height="20" as="geometry"/></mxCell>
+    <mxCell id="bf3" value="" style="strokeColor=none;fillColor=#1D9E75;rounded=1;arcSize=10;" vertex="1" parent="1"><mxGeometry x="126" y="762" width="115" height="20" as="geometry"/></mxCell>
+    <mxCell id="bv3" value="Rp 8jt" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontStyle=1;fontSize=10;fontColor=#333333;" vertex="1" parent="1"><mxGeometry x="245" y="760" width="80" height="24" as="geometry"/></mxCell>
+
+    <!-- BAR: Komunikasi 3jt -->
+    <mxCell id="bl4" value="Komunikasi" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontSize=10;fontColor=#555555;" vertex="1" parent="1"><mxGeometry x="20" y="790" width="100" height="24" as="geometry"/></mxCell>
+    <mxCell id="bb4" value="" style="strokeColor=none;fillColor=#e0e0e0;rounded=1;arcSize=10;" vertex="1" parent="1"><mxGeometry x="126" y="792" width="360" height="20" as="geometry"/></mxCell>
+    <mxCell id="bf4" value="" style="strokeColor=none;fillColor=#BA7517;rounded=1;arcSize=10;" vertex="1" parent="1"><mxGeometry x="126" y="792" width="43" height="20" as="geometry"/></mxCell>
+    <mxCell id="bv4" value="Rp 3jt" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontStyle=1;fontSize=10;fontColor=#333333;" vertex="1" parent="1"><mxGeometry x="173" y="790" width="80" height="24" as="geometry"/></mxCell>
+
+    <!-- BAR: Konten 5jt -->
+    <mxCell id="bl5" value="Konten" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontSize=10;fontColor=#555555;" vertex="1" parent="1"><mxGeometry x="20" y="820" width="100" height="24" as="geometry"/></mxCell>
+    <mxCell id="bb5" value="" style="strokeColor=none;fillColor=#e0e0e0;rounded=1;arcSize=10;" vertex="1" parent="1"><mxGeometry x="126" y="822" width="360" height="20" as="geometry"/></mxCell>
+    <mxCell id="bf5" value="" style="strokeColor=none;fillColor=#639922;rounded=1;arcSize=10;" vertex="1" parent="1"><mxGeometry x="126" y="822" width="72" height="20" as="geometry"/></mxCell>
+    <mxCell id="bv5" value="Rp 5jt" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontStyle=1;fontSize=10;fontColor=#333333;" vertex="1" parent="1"><mxGeometry x="202" y="820" width="80" height="24" as="geometry"/></mxCell>
+
+    <!-- BAR: Pelatihan 3.5jt -->
+    <mxCell id="bl6" value="Pelatihan" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;fontSize=10;fontColor=#555555;" vertex="1" parent="1"><mxGeometry x="20" y="850" width="100" height="24" as="geometry"/></mxCell>
+    <mxCell id="bb6" value="" style="strokeColor=none;fillColor=#e0e0e0;rounded=1;arcSize=10;" vertex="1" parent="1"><mxGeometry x="126" y="852" width="360" height="20" as="geometry"/></mxCell>
+    <mxCell id="bf6" value="" style="strokeColor=none;fillColor=#993556;rounded=1;arcSize=10;" vertex="1" parent="1"><mxGeometry x="126" y="852" width="50" height="20" as="geometry"/></mxCell>
+    <mxCell id="bv6" value="Rp 3.5jt" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontStyle=1;fontSize=10;fontColor=#333333;" vertex="1" parent="1"><mxGeometry x="180" y="850" width="80" height="24" as="geometry"/></mxCell>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- SECTION 10.3 — ALUR PROSES PENGADAAN -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <mxCell id="s3-title" value="10.3 ALUR PROSES PENGADAAN" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontStyle=1;fontSize=12;fontColor=#666666;" vertex="1" parent="1"><mxGeometry x="20" y="894" width="400" height="24" as="geometry"/></mxCell>
+
+    <!-- FLOW BOXES -->
+    <mxCell id="f1" value="1. Identifikasi<br>Kebutuhan" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f5f5f5;align=center;verticalAlign=middle;rounded=1;arcSize=10;fontSize=11;fontColor=#333333;" vertex="1" parent="1"><mxGeometry x="20" y="926" width="120" height="46" as="geometry"/></mxCell>
+    <mxCell id="fa1" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#aaaaaa;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="f1" target="f2" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+    <mxCell id="f2" value="2. Pemilihan<br>Vendor" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f5f5f5;align=center;verticalAlign=middle;rounded=1;arcSize=10;fontSize=11;fontColor=#333333;" vertex="1" parent="1"><mxGeometry x="160" y="926" width="120" height="46" as="geometry"/></mxCell>
+    <mxCell id="fa2" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#aaaaaa;" edge="1" source="f2" target="f3" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+    <mxCell id="f3" value="3. Persetujuan<br>PM &amp; Sponsor" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f5f5f5;align=center;verticalAlign=middle;rounded=1;arcSize=10;fontSize=11;fontColor=#333333;" vertex="1" parent="1"><mxGeometry x="300" y="926" width="120" height="46" as="geometry"/></mxCell>
+    <mxCell id="fa3" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#aaaaaa;" edge="1" source="f3" target="f4" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+    <mxCell id="f4" value="4. Pembelian /<br>Kontrak" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f5f5f5;align=center;verticalAlign=middle;rounded=1;arcSize=10;fontSize=11;fontColor=#333333;" vertex="1" parent="1"><mxGeometry x="440" y="926" width="120" height="46" as="geometry"/></mxCell>
+    <mxCell id="fa4" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#aaaaaa;" edge="1" source="f4" target="f5" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+    <mxCell id="f5" value="5. Penerimaan &amp;<br>Verifikasi" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f5f5f5;align=center;verticalAlign=middle;rounded=1;arcSize=10;fontSize=11;fontColor=#333333;" vertex="1" parent="1"><mxGeometry x="580" y="926" width="120" height="46" as="geometry"/></mxCell>
+    <mxCell id="fa5" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeColor=#aaaaaa;" edge="1" source="f5" target="f6" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+    <mxCell id="f6" value="6. Pencatatan<br>Biaya di WBS" style="text;html=1;strokeColor=#d0d0d0;fillColor=#f5f5f5;align=center;verticalAlign=middle;rounded=1;arcSize=10;fontSize=11;fontColor=#333333;" vertex="1" parent="1"><mxGeometry x="720" y="926" width="120" height="46" as="geometry"/></mxCell>
+
+    <!-- NOTE -->
+    <mxCell id="note" value="Setiap pengadaan di atas Rp 5.000.000 wajib mendapat persetujuan tertulis dari Project Manager dan Executive Sponsor sebelum proses pembelian dilakukan." style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#888888;whiteSpace=wrap;" vertex="1" parent="1"><mxGeometry x="20" y="984" width="820" height="30" as="geometry"/></mxCell>
+
+  </root>
+</mxGraphModel>
