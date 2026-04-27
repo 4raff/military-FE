@@ -1,192 +1,228 @@
-import { useMemo } from 'react'
-import { Users, Package, Warehouse, TrendingUp, AlertCircle, CheckCircle } from 'lucide-react'
+import { useEffect, useMemo, useState } from 'react'
+import {
+  Users,
+  Package,
+  Warehouse,
+  TrendingUp,
+  AlertCircle,
+  Clock,
+} from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 import { StatCard, ChartCard, RecentActivityTable } from '../../../components/dashboard'
+import { itemsService, requestsService, unitService, userService, warehouseService } from '../../../services'
+import type { Item, ItemRequest, Unit, User, Warehouse as WarehouseType } from '../../../types/api'
+
+interface PendingRequestView {
+  id: number
+  itemName: string
+  unitName: string
+  quantity: number
+  reason: string
+}
+
+const toTimestampLabel = (createdAt?: string, fallbackId?: number) => {
+  if (!createdAt) {
+    return fallbackId ? `Request #${fallbackId}` : 'Unknown time'
+  }
+
+  const date = new Date(createdAt)
+  if (Number.isNaN(date.getTime())) {
+    return fallbackId ? `Request #${fallbackId}` : 'Unknown time'
+  }
+
+  return date.toLocaleString('id-ID', {
+    day: '2-digit',
+    month: 'short',
+    hour: '2-digit',
+    minute: '2-digit',
+  })
+}
 
 export default function SuperAdminDashboard() {
-  // Mock data - Will be replaced with actual API calls
+  const navigate = useNavigate()
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  const [users, setUsers] = useState<User[]>([])
+  const [items, setItems] = useState<Item[]>([])
+  const [warehouses, setWarehouses] = useState<WarehouseType[]>([])
+  const [units, setUnits] = useState<Unit[]>([])
+  const [pendingRequests, setPendingRequests] = useState<ItemRequest[]>([])
+
+  const fetchDashboardData = async () => {
+    try {
+      setIsLoading(true)
+      setError(null)
+
+      const [usersRes, itemsRes, warehousesRes, requestsRes, unitsRes] = await Promise.all([
+        userService.getAll(),
+        itemsService.getAll(),
+        warehouseService.getAll(),
+        requestsService.getPendingRequests(),
+        unitService.getAll(),
+      ])
+
+      setUsers(usersRes.data ?? [])
+      setItems(itemsRes.data ?? [])
+      setWarehouses(warehousesRes.data ?? [])
+      setPendingRequests(requestsRes.data ?? [])
+      setUnits(unitsRes.data ?? [])
+    } catch (err: any) {
+      setError(err?.response?.data?.message || 'Gagal memuat data dashboard superadmin')
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  useEffect(() => {
+    fetchDashboardData()
+  }, [])
+
+  const maps = useMemo(() => {
+    const itemMap = new Map(items.map((item) => [item.id, item.name]))
+    const userMap = new Map(users.map((user) => [user.id, user]))
+    const unitMap = new Map(units.map((unit) => [unit.id, unit.name]))
+
+    return { itemMap, userMap, unitMap }
+  }, [items, users, units])
+
   const stats = useMemo(
     () => [
       {
         label: 'Total Users',
-        value: 42,
+        value: users.length,
         icon: <Users size={24} />,
-        trend: { value: 12, direction: 'up' as const },
         color: 'blue' as const,
       },
       {
         label: 'Total Items',
-        value: 328,
+        value: items.length,
         icon: <Package size={24} />,
-        trend: { value: 5, direction: 'up' as const },
         color: 'purple' as const,
       },
       {
         label: 'Warehouses',
-        value: 8,
+        value: warehouses.length,
         icon: <Warehouse size={24} />,
         color: 'green' as const,
       },
       {
         label: 'Pending Requests',
-        value: 12,
+        value: pendingRequests.length,
         icon: <AlertCircle size={24} />,
-        trend: { value: 8, direction: 'down' as const },
         color: 'red' as const,
       },
     ],
-    [],
+    [users.length, items.length, warehouses.length, pendingRequests.length],
   )
 
-  const recentActivities = useMemo(
-    () => [
-      {
-        id: '1',
-        action: 'User Created',
-        description: 'New admin user "Budi Santoso" created for KODIM-001',
-        timestamp: '5 min ago',
-        user: 'Admin User',
-        status: 'success' as const,
-        icon: <Users size={16} />,
-      },
-      {
-        id: '2',
-        action: 'Request Approved',
-        description: 'Item request #2034 approved for ammunition supply',
-        timestamp: '15 min ago',
-        user: 'Admin User',
-        status: 'success' as const,
-        icon: <CheckCircle size={16} />,
-      },
-      {
-        id: '3',
-        action: 'Request Rejected',
-        description: 'Item request #2033 rejected - insufficient stock',
-        timestamp: '1 hour ago',
-        user: 'Admin User',
+  const recentActivities = useMemo(() => {
+    return pendingRequests.slice(0, 6).map((request) => {
+      const requester = maps.userMap.get(request.userId)
+      const itemName = maps.itemMap.get(request.itemId) || `Item #${request.itemId}`
+
+      return {
+        id: String(request.id),
+        action: 'Request Pending',
+        description: `${request.quantity}x ${itemName}`,
+        timestamp: toTimestampLabel(request.created_at, request.id),
+        user: requester?.name || `User #${request.userId}`,
         status: 'warning' as const,
-        icon: <AlertCircle size={16} />,
-      },
-      {
-        id: '4',
-        action: 'Inventory Updated',
-        description: 'Weapon stock updated in Warehouse Central',
-        timestamp: '2 hours ago',
-        user: 'System',
-        status: 'info' as const,
-        icon: <Package size={16} />,
-      },
-      {
-        id: '5',
-        action: 'System Alert',
-        description: 'Database backup completed successfully',
-        timestamp: '4 hours ago',
-        user: 'System',
-        status: 'success' as const,
-        icon: <CheckCircle size={16} />,
-      },
-    ],
-    [],
-  )
+        icon: <Clock size={16} />,
+      }
+    })
+  }, [pendingRequests, maps])
 
-  const topRequests = useMemo(
-    () => [
-      {
-        id: '2045',
-        item: 'Assault Rifle Ammunition',
-        unit: 'KODIM-001',
-        quantity: 500,
-        status: 'pending' as const,
-      },
-      {
-        id: '2044',
-        item: 'Medical Supplies',
-        unit: 'MABESAD',
-        quantity: 200,
-        status: 'pending' as const,
-      },
-      {
-        id: '2043',
-        item: 'Communication Equipment',
-        unit: 'KODIM-002',
-        quantity: 15,
-        status: 'approved' as const,
-      },
-    ],
-    [],
-  )
+  const topRequests = useMemo<PendingRequestView[]>(() => {
+    return pendingRequests.slice(0, 8).map((request) => {
+      const requester = maps.userMap.get(request.userId)
+
+      return {
+        id: request.id,
+        itemName: maps.itemMap.get(request.itemId) || `Item #${request.itemId}`,
+        unitName: requester ? maps.unitMap.get(requester.unitId) || requester.unitId : '-',
+        quantity: request.quantity,
+        reason: request.reason,
+      }
+    })
+  }, [pendingRequests, maps])
+
+  const totalStock = useMemo(() => items.reduce((sum, item) => sum + item.stock, 0), [items])
 
   return (
     <div className="space-y-8">
-      {/* Welcome Section */}
       <div className="space-y-2">
-        <h1 className="text-3xl font-bold text-white">
-          Welcome back, Super Administrator
-        </h1>
-        <p className="text-slate-400">
-          Here's what's happening with your military inventory system today
-        </p>
+        <h1 className="text-3xl font-bold text-white">Welcome back, Super Administrator</h1>
+        <p className="text-slate-400">Data dashboard saat ini ditarik langsung dari API backend</p>
       </div>
 
-      {/* Statistics Grid */}
+      {error && (
+        <div className="p-4 rounded-lg border border-red-500/40 bg-red-500/10 text-red-200 text-sm">
+          {error}
+        </div>
+      )}
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {stats.map((stat, idx) => (
+        {stats.map((stat) => (
           <StatCard
-            key={idx}
+            key={stat.label}
             label={stat.label}
             value={stat.value}
             icon={stat.icon}
-            trend={stat.trend}
             color={stat.color}
           />
         ))}
       </div>
 
-      {/* Main Content Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Recent Activity */}
         <div className="lg:col-span-2">
-          <RecentActivityTable items={recentActivities} onViewAll={() => {}} />
+          <RecentActivityTable
+            items={recentActivities}
+            onViewAll={() => {}}
+            isLoading={isLoading}
+          />
         </div>
 
-        {/* Quick Stats */}
-        <ChartCard title="System Status" subtitle="Real-time metrics">
+        <ChartCard title="System Status" subtitle="Real-time metrics from API">
           <div className="space-y-4">
-            <div className="flex items-center justify-between p-3 rounded-lg bg-slate-700/20 hover:bg-slate-700/30 transition-colors">
+            <div className="flex items-center justify-between p-3 rounded-lg bg-slate-700/20">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-green-400"></div>
                 <span className="text-sm text-slate-300">API Status</span>
               </div>
-              <span className="text-sm font-semibold text-green-400">Healthy</span>
+              <span className="text-sm font-semibold text-green-400">Online</span>
             </div>
-            <div className="flex items-center justify-between p-3 rounded-lg bg-slate-700/20 hover:bg-slate-700/30 transition-colors">
+            <div className="flex items-center justify-between p-3 rounded-lg bg-slate-700/20">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-green-400"></div>
-                <span className="text-sm text-slate-300">Database</span>
+                <span className="text-sm text-slate-300">Warehouse Records</span>
               </div>
-              <span className="text-sm font-semibold text-green-400">Connected</span>
+              <span className="text-sm font-semibold text-slate-200">{warehouses.length}</span>
             </div>
-            <div className="flex items-center justify-between p-3 rounded-lg bg-slate-700/20 hover:bg-slate-700/30 transition-colors">
+            <div className="flex items-center justify-between p-3 rounded-lg bg-slate-700/20">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
-                <span className="text-sm text-slate-300">Storage</span>
+                <div className="w-2 h-2 rounded-full bg-blue-400"></div>
+                <span className="text-sm text-slate-300">Total Stock</span>
               </div>
-              <span className="text-sm font-semibold text-yellow-400">75% Used</span>
+              <span className="text-sm font-semibold text-blue-300">{totalStock}</span>
             </div>
             <div className="mt-4 p-3 rounded-lg bg-blue-500/10 border border-blue-500/20">
               <p className="text-xs text-slate-400 mb-2">Last Sync</p>
-              <p className="text-sm font-semibold text-blue-300">2 minutes ago</p>
+              <p className="text-sm font-semibold text-blue-300">{new Date().toLocaleTimeString('id-ID')}</p>
             </div>
           </div>
         </ChartCard>
       </div>
 
-      {/* Pending Requests Section */}
       <ChartCard
-        title="Top Pending Requests"
-        subtitle="Items waiting for approval"
+        title="Pending Requests"
+        subtitle="Antrian request yang menunggu approval"
         action={
-          <button className="px-3 py-1 text-sm text-blue-400 hover:text-blue-300 font-medium transition-colors">
-            View All
+          <button
+            onClick={fetchDashboardData}
+            className="px-3 py-1 text-sm text-blue-400 hover:text-blue-300 font-medium transition-colors"
+          >
+            Refresh
           </button>
         }
       >
@@ -194,53 +230,46 @@ export default function SuperAdminDashboard() {
           <table className="w-full">
             <thead>
               <tr className="border-b border-slate-700/50">
-                <th className="text-left py-3 px-4 text-xs font-semibold text-slate-400">
-                  Request ID
-                </th>
-                <th className="text-left py-3 px-4 text-xs font-semibold text-slate-400">
-                  Item
-                </th>
-                <th className="text-left py-3 px-4 text-xs font-semibold text-slate-400">
-                  Unit
-                </th>
-                <th className="text-left py-3 px-4 text-xs font-semibold text-slate-400">
-                  Quantity
-                </th>
-                <th className="text-left py-3 px-4 text-xs font-semibold text-slate-400">
-                  Action
-                </th>
+                <th className="text-left py-3 px-4 text-xs font-semibold text-slate-400">Request ID</th>
+                <th className="text-left py-3 px-4 text-xs font-semibold text-slate-400">Item</th>
+                <th className="text-left py-3 px-4 text-xs font-semibold text-slate-400">Unit</th>
+                <th className="text-left py-3 px-4 text-xs font-semibold text-slate-400">Qty</th>
+                <th className="text-left py-3 px-4 text-xs font-semibold text-slate-400">Reason</th>
               </tr>
             </thead>
             <tbody>
-              {topRequests.map((req) => (
-                <tr
-                  key={req.id}
-                  className="border-b border-slate-700/30 hover:bg-slate-700/20 transition-colors"
-                >
-                  <td className="py-3 px-4 text-sm font-medium text-white">#{req.id}</td>
-                  <td className="py-3 px-4 text-sm text-slate-300">{req.item}</td>
-                  <td className="py-3 px-4 text-sm text-slate-400">{req.unit}</td>
-                  <td className="py-3 px-4 text-sm text-slate-300 font-medium">{req.quantity}</td>
-                  <td className="py-3 px-4 text-sm">
-                    <div className="flex gap-2">
-                      <button className="px-2 py-1 text-xs rounded bg-green-500/20 text-green-400 hover:bg-green-500/30 transition-colors border border-green-500/30">
-                        Approve
-                      </button>
-                      <button className="px-2 py-1 text-xs rounded bg-red-500/20 text-red-400 hover:bg-red-500/30 transition-colors border border-red-500/30">
-                        Reject
-                      </button>
-                    </div>
+              {topRequests.length === 0 ? (
+                <tr>
+                  <td className="py-6 px-4 text-sm text-slate-400" colSpan={5}>
+                    Tidak ada pending request.
                   </td>
                 </tr>
-              ))}
+              ) : (
+                topRequests.map((req) => (
+                  <tr
+                    key={req.id}
+                    className="border-b border-slate-700/30 hover:bg-slate-700/20 transition-colors"
+                  >
+                    <td className="py-3 px-4 text-sm font-medium text-white">#{req.id}</td>
+                    <td className="py-3 px-4 text-sm text-slate-300">{req.itemName}</td>
+                    <td className="py-3 px-4 text-sm text-slate-400">{req.unitName}</td>
+                    <td className="py-3 px-4 text-sm text-slate-300 font-medium">{req.quantity}</td>
+                    <td className="py-3 px-4 text-sm text-slate-400 max-w-[280px] truncate" title={req.reason}>
+                      {req.reason}
+                    </td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
         </div>
       </ChartCard>
 
-      {/* Quick Actions */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <button className="p-4 rounded-lg border border-slate-700/50 bg-slate-800/30 hover:bg-slate-800/50 backdrop-blur-sm transition-all group">
+        <button
+          onClick={() => navigate('/dashboard/users')}
+          className="p-4 rounded-lg border border-slate-700/50 bg-slate-800/30 hover:bg-slate-800/50 backdrop-blur-sm transition-all group"
+        >
           <div className="flex items-center gap-3">
             <div className="p-2 rounded-lg bg-blue-500/20 group-hover:bg-blue-500/30 transition-colors">
               <Users className="text-blue-400" size={20} />
@@ -252,7 +281,10 @@ export default function SuperAdminDashboard() {
           </div>
         </button>
 
-        <button className="p-4 rounded-lg border border-slate-700/50 bg-slate-800/30 hover:bg-slate-800/50 backdrop-blur-sm transition-all group">
+        <button
+          onClick={() => navigate('/dashboard/inventory')}
+          className="p-4 rounded-lg border border-slate-700/50 bg-slate-800/30 hover:bg-slate-800/50 backdrop-blur-sm transition-all group"
+        >
           <div className="flex items-center gap-3">
             <div className="p-2 rounded-lg bg-purple-500/20 group-hover:bg-purple-500/30 transition-colors">
               <Package className="text-purple-400" size={20} />
@@ -264,19 +296,25 @@ export default function SuperAdminDashboard() {
           </div>
         </button>
 
-        <button className="p-4 rounded-lg border border-slate-700/50 bg-slate-800/30 hover:bg-slate-800/50 backdrop-blur-sm transition-all group">
+        <button
+          onClick={() => navigate('/dashboard/warehouses')}
+          className="p-4 rounded-lg border border-slate-700/50 bg-slate-800/30 hover:bg-slate-800/50 backdrop-blur-sm transition-all group"
+        >
           <div className="flex items-center gap-3">
             <div className="p-2 rounded-lg bg-green-500/20 group-hover:bg-green-500/30 transition-colors">
               <Warehouse className="text-green-400" size={20} />
             </div>
             <div className="text-left">
               <p className="text-xs text-slate-400">Quick Action</p>
-              <p className="text-sm font-semibold text-white">Manage Units</p>
+              <p className="text-sm font-semibold text-white">Manage Warehouses</p>
             </div>
           </div>
         </button>
 
-        <button className="p-4 rounded-lg border border-slate-700/50 bg-slate-800/30 hover:bg-slate-800/50 backdrop-blur-sm transition-all group">
+        <button
+          onClick={() => navigate('/dashboard/statistics')}
+          className="p-4 rounded-lg border border-slate-700/50 bg-slate-800/30 hover:bg-slate-800/50 backdrop-blur-sm transition-all group"
+        >
           <div className="flex items-center gap-3">
             <div className="p-2 rounded-lg bg-orange-500/20 group-hover:bg-orange-500/30 transition-colors">
               <TrendingUp className="text-orange-400" size={20} />

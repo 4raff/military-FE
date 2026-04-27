@@ -20,16 +20,18 @@ export default function BlurredBackground({
       <div
         style={{
           position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
+          top: -24,
+          left: -24,
+          right: -24,
+          bottom: -24,
           backgroundImage: `url('${backgroundImage}')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',
           filter: `blur(${blurAmount}px)`,
-          zIndex: -10,
+          transform: 'translateZ(0)',
+          willChange: 'transform, filter',
+          zIndex: 0,
           pointerEvents: 'none',
         }}
       />
@@ -38,18 +40,19 @@ export default function BlurredBackground({
       <div
         style={{
           position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
+          top: -2,
+          left: -2,
+          right: -2,
+          bottom: -2,
           backgroundColor: `rgba(0, 0, 0, ${overlayOpacity})`,
-          zIndex: -9,
+          transform: 'translateZ(0)',
+          zIndex: 1,
           pointerEvents: 'none',
         }}
       />
 
       {/* Content */}
-      {children}
+      <div style={{ position: 'relative', zIndex: 2 }}>{children}</div>
     </div>
   )
 }

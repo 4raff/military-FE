@@ -1,10 +1,12 @@
-import { useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useAppSelector } from '../../store/hooks'
 import { Link, useLocation } from 'react-router-dom'
+import { unitService } from '../../services'
 import {
   BarChart3,
   Users,
   Package,
+  Shield,
   Warehouse,
   FileText,
   Settings,
@@ -15,6 +17,7 @@ import {
 
 interface SidebarProps {
   isOpen: boolean
+  onClose: () => void
 }
 
 interface NavItem {
@@ -25,9 +28,35 @@ interface NavItem {
   badge?: string
 }
 
-export default function Sidebar({ isOpen }: SidebarProps) {
+export default function Sidebar({ isOpen, onClose }: SidebarProps) {
   const user = useAppSelector((state) => state.auth.user)
   const location = useLocation()
+  const [unitName, setUnitName] = useState<string | null>(null)
+
+  useEffect(() => {
+    const resolveUnitName = async () => {
+      if (!user?.unitId) {
+        setUnitName(null)
+        return
+      }
+
+      try {
+        const response = await unitService.getAll()
+        const unitList = Array.isArray((response as any)?.data)
+          ? (response as any).data
+          : Array.isArray(response)
+            ? response
+            : []
+
+        const matched = unitList.find((unit: any) => unit.id === user.unitId)
+        setUnitName(matched?.name || null)
+      } catch {
+        setUnitName(null)
+      }
+    }
+
+    resolveUnitName()
+  }, [user?.unitId])
 
   const navigationItems: NavItem[] = useMemo(
     () => [
@@ -54,6 +83,12 @@ export default function Sidebar({ isOpen }: SidebarProps) {
         href: '/dashboard/warehouses',
         icon: <Warehouse size={20} />,
         roles: ['superadmin', 'admin'],
+      },
+      {
+        label: 'Units',
+        href: '/dashboard/units',
+        icon: <Shield size={20} />,
+        roles: ['superadmin'],
       },
       {
         label: 'Requests',
@@ -97,8 +132,8 @@ export default function Sidebar({ isOpen }: SidebarProps) {
 
       {/* Sidebar */}
       <aside
-        className={`fixed lg:static top-0 left-0 h-screen w-64 bg-slate-950/72 backdrop-blur-xl border-r border-slate-700/60 transition-transform duration-300 ease-in-out z-40 lg:z-auto ${
-          isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
+        className={`fixed top-0 left-0 h-screen w-64 overflow-hidden bg-slate-950/72 backdrop-blur-xl border-r border-slate-700/60 transition-transform duration-300 ease-out will-change-transform z-40 ${
+          isOpen ? 'translate-x-0 pointer-events-auto' : '-translate-x-full pointer-events-none'
         }`}
       >
         <div className="flex flex-col h-full">
@@ -108,9 +143,18 @@ export default function Sidebar({ isOpen }: SidebarProps) {
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center">
                 <span className="text-white font-bold text-sm">M</span>
               </div>
-              <span className="font-bold text-white text-lg">Military</span>
+              <div className="flex flex-col">
+                <span className="font-bold text-white text-sm leading-tight truncate max-w-[170px]">
+                  {unitName || user?.unitId || 'Military'}
+                </span>
+                <span className="text-[11px] text-slate-400 leading-tight">Unit Header</span>
+              </div>
             </div>
-            <button className="p-2 hover:bg-slate-700/50 rounded-lg lg:hidden text-slate-300">
+            <button
+              onClick={onClose}
+              className="p-2 hover:bg-slate-700/50 rounded-lg lg:hidden text-slate-300"
+              aria-label="Close sidebar"
+            >
               <X size={20} />
             </button>
           </div>
@@ -122,10 +166,10 @@ export default function Sidebar({ isOpen }: SidebarProps) {
                 <Link
                   key={item.href}
                   to={item.href}
-                  className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 group ${
+                  className={`flex items-center gap-3 px-4 py-3 rounded-lg border transition-colors duration-200 group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/40 ${
                     isActive(item.href)
-                      ? 'bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-white border border-blue-400/20'
-                        : 'text-slate-300 hover:text-white hover:bg-slate-800/70'
+                      ? 'bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-white border-blue-400/25'
+                      : 'text-slate-300 border-transparent hover:text-white hover:bg-slate-800/70 hover:border-slate-600/40'
                   }`}
                 >
                   <span

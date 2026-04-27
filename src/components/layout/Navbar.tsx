@@ -32,17 +32,6 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
     navigate('/login')
   }
 
-  const getRoleBadgeColor = (role: string) => {
-    switch (role) {
-      case 'superadmin':
-        return 'bg-purple-500/20 text-purple-300 border border-purple-500/30'
-      case 'admin':
-        return 'bg-blue-500/20 text-blue-300 border border-blue-500/30'
-      default:
-        return 'bg-slate-500/20 text-slate-300 border border-slate-500/30'
-    }
-  }
-
   return (
     <nav className="bg-slate-950/70 backdrop-blur-xl border-b border-slate-700/60 sticky top-0 z-40 shadow-[0_8px_24px_rgba(2,6,23,0.45)]">
       <div className="px-6 py-4">
@@ -105,8 +94,8 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
                 </div>
                 <div className="hidden sm:flex flex-col text-left">
                   <span className="text-sm font-medium text-white">{user?.name || 'User'}</span>
-                  <span className={`text-xs px-2 py-0.5 rounded-full font-semibold ${getRoleBadgeColor(user?.role || 'user')}`}>
-                    {user && user.role === 'superadmin' ? 'Super Admin' : user?.role ? user.role.charAt(0).toUpperCase() + user.role.slice(1) : 'User'}
+                  <span className="text-xs px-2 py-0.5 rounded-full font-semibold bg-slate-500/20 text-slate-300 border border-slate-500/30">
+                    {user?.unitId || '-'}
                   </span>
                 </div>
                 <ChevronDown

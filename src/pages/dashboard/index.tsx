@@ -5,6 +5,12 @@ import SuperAdminDashboard from './superadmin'
 import AdminDashboard from './admin/index'
 import UserDashboard from './user/index'
 import StatisticsPage from './statistics'
+import InventoryPage from './inventory'
+import WarehousesPage from './warehouses'
+import UnitsPage from './units'
+import RequestsPage from './requests'
+import UsersPage from './users'
+import SettingsPage from './settings'
 
 export default function DashboardPage() {
   const user = useAppSelector((state) => state.auth.user)
@@ -39,6 +45,9 @@ export default function DashboardPage() {
     }
   }
 
+  const isAdminScope = user.role === 'superadmin' || user.role === 'admin'
+  const isSuperAdmin = user.role === 'superadmin'
+
   return (
     <MainLayout>
       <Routes>
@@ -46,12 +55,33 @@ export default function DashboardPage() {
         <Route
           path="statistics"
           element={
-            user.role === 'superadmin' || user.role === 'admin' ? (
-              <StatisticsPage role={user.role} />
+            isAdminScope ? (
+              <StatisticsPage role={user.role === 'superadmin' ? 'superadmin' : 'admin'} />
             ) : (
               <Navigate to="/dashboard" replace />
             )
           }
+        />
+        <Route
+          path="inventory"
+          element={isAdminScope ? <InventoryPage /> : <Navigate to="/dashboard" replace />}
+        />
+        <Route
+          path="warehouses"
+          element={isAdminScope ? <WarehousesPage /> : <Navigate to="/dashboard" replace />}
+        />
+        <Route
+          path="units"
+          element={isAdminScope ? <UnitsPage /> : <Navigate to="/dashboard" replace />}
+        />
+        <Route path="requests" element={<RequestsPage role={user.role} />} />
+        <Route
+          path="users"
+          element={isSuperAdmin ? <UsersPage /> : <Navigate to="/dashboard" replace />}
+        />
+        <Route
+          path="settings"
+          element={isSuperAdmin ? <SettingsPage /> : <Navigate to="/dashboard" replace />}
         />
         <Route path="*" element={<Navigate to="/dashboard" replace />} />
       </Routes>

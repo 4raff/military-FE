@@ -15,18 +15,26 @@ export default function MainLayout({ children }: MainLayoutProps) {
     setSidebarOpen(!sidebarOpen)
   }
 
+  const closeSidebar = () => {
+    setSidebarOpen(false)
+  }
+
   return (
-    <div className="flex h-screen overflow-hidden bg-transparent">
+    <div className="h-screen overflow-hidden bg-transparent">
       {/* Sidebar */}
-      <Sidebar isOpen={sidebarOpen} />
+      <Sidebar isOpen={sidebarOpen} onClose={closeSidebar} />
 
       {/* Main Content */}
-      <div className="flex flex-col flex-1 overflow-hidden">
+      <div
+        className={`flex flex-col h-full overflow-hidden transition-[margin] duration-300 ease-out ${
+          sidebarOpen ? 'lg:ml-64' : 'lg:ml-0'
+        }`}
+      >
         {/* Navbar */}
         <Navbar onMenuClick={toggleSidebar} />
 
         {/* Content Area */}
-        <main className="flex-1 overflow-y-auto bg-transparent">
+        <main className="flex-1 overflow-y-scroll [scrollbar-gutter:stable] bg-transparent">
           <div className="p-6 md:p-8 max-w-7xl mx-auto">
             {children}
           </div>
