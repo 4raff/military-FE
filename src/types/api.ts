@@ -41,6 +41,7 @@ export interface User {
 export interface Unit {
   id: string
   name: string
+  logo?: string
   created_at?: string
   updated_at?: string
 }
@@ -48,10 +49,12 @@ export interface Unit {
 export interface CreateUnitRequest {
   id: string
   name: string
+  logo?: string
 }
 
 export interface UpdateUnitRequest {
   name: string
+  logo?: string
 }
 
 // Warehouse Types
@@ -69,7 +72,8 @@ export interface CreateWarehouseRequest {
 }
 
 export interface UpdateWarehouseRequest {
-  name: string
+  name?: string
+  unitId?: string
 }
 
 // Item Types
@@ -80,6 +84,9 @@ export interface Item {
   stock: number
   condition: 'Aktif' | 'Digunakan' | 'Rusak' | 'Perbaikan' | 'Cadangan' | 'Habis'
   warehouseId: number
+  imageUrl?: string
+  warehouseName?: string
+  unitId?: string
   created_at?: string
   updated_at?: string
 }
@@ -90,9 +97,10 @@ export interface CreateItemRequest {
   stock: number
   condition?: 'Aktif' | 'Digunakan' | 'Rusak' | 'Perbaikan' | 'Cadangan' | 'Habis'
   warehouseId: number
+  imageUrl: string
 }
 
-export interface UpdateItemRequest extends Partial<Omit<CreateItemRequest, 'warehouseId'>> {}
+export interface UpdateItemRequest extends Partial<CreateItemRequest> {}
 
 // Request Types
 export interface ItemRequest {

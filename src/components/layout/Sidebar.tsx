@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useAppSelector } from '../../store/hooks'
 import { Link, useLocation } from 'react-router-dom'
-import { unitService } from '../../services'
 import {
   BarChart3,
   Users,
@@ -32,26 +31,35 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
   const user = useAppSelector((state) => state.auth.user)
   const location = useLocation()
   const [unitName, setUnitName] = useState<string | null>(null)
+  const [unitLogo, setUnitLogo] = useState<string | null>(null)
 
   useEffect(() => {
     const resolveUnitName = async () => {
       if (!user?.unitId) {
         setUnitName(null)
+        setUnitLogo(null)
         return
       }
 
       try {
-        const response = await unitService.getAll()
-        const unitList = Array.isArray((response as any)?.data)
-          ? (response as any).data
-          : Array.isArray(response)
-            ? response
-            : []
-
-        const matched = unitList.find((unit: any) => unit.id === user.unitId)
-        setUnitName(matched?.name || null)
+        // Use public endpoint that all authenticated users can access
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/units/info/${user.unitId}`, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        })
+        
+        if (response.ok) {
+          const data = await response.json()
+          setUnitName(data.data?.name || null)
+          setUnitLogo(data.data?.logo || null)
+        } else {
+          setUnitName(null)
+          setUnitLogo(null)
+        }
       } catch {
         setUnitName(null)
+        setUnitLogo(null)
       }
     }
 
@@ -138,21 +146,22 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
       >
         <div className="flex flex-col h-full">
           {/* Sidebar Header */}
-          <div className="flex items-center justify-between p-6 border-b border-slate-700/50">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center">
-                <span className="text-white font-bold text-sm">M</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="font-bold text-white text-sm leading-tight truncate max-w-[170px]">
-                  {unitName || user?.unitId || 'Military'}
-                </span>
-                <span className="text-[11px] text-slate-400 leading-tight">Unit Header</span>
-              </div>
+          <div className="flex items-start justify-between p-6 border-b border-slate-700/50 gap-2">
+            <div className="flex items-start gap-3 flex-1 min-w-0">
+              {unitLogo ? (
+                <img src={unitLogo} alt="Unit Logo" className="w-10 h-10 object-cover rounded-lg flex-shrink-0 mt-0.5" />
+              ) : (
+                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <span className="text-white font-bold text-sm">{(user?.unitId || 'M')[0]}</span>
+                </div>
+              )}
+              <span className="font-bold text-white text-sm leading-snug break-words">
+                {unitName || user?.unitId || 'Military'}
+              </span>
             </div>
             <button
               onClick={onClose}
-              className="p-2 hover:bg-slate-700/50 rounded-lg lg:hidden text-slate-300"
+              className="p-2 hover:bg-slate-700/50 rounded-lg lg:hidden text-slate-300 flex-shrink-0"
               aria-label="Close sidebar"
             >
               <X size={20} />

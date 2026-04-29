@@ -13,7 +13,7 @@ export const unitService = {
 
   // Get unit by ID (code)
   getById: async (id: string) => {
-    const response = await apiClient.get<ApiResponse<Unit>>(`/units/${id}`)
+    const response = await apiClient.get<ApiResponse<Unit>>(`/units/info/${id}`)
     return response.data
   },
 

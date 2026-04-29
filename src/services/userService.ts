@@ -8,6 +8,12 @@ export const userService = {
     return response.data
   },
 
+  // Get user by ID (SuperAdmin)
+  getById: async (id: number) => {
+    const response = await apiClient.get<ApiResponse<User & { password?: string }>>(`/users/${id}`)
+    return response.data
+  },
+
   // Create user (SuperAdmin)
   create: async (data: {
     name: string
@@ -31,6 +37,12 @@ export const userService = {
     const response = await apiClient.delete<ApiResponse<{ message: string }>>(
       `/users/${id}`,
     )
+    return response.data
+  },
+
+  // Reset password (SuperAdmin) - Generate new password
+  resetPassword: async (id: number) => {
+    const response = await apiClient.post<ApiResponse<{ password: string }>>(`/users/${id}/reset-password`, {})
     return response.data
   },
 }
